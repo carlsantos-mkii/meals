@@ -24,7 +24,30 @@ class MealItem extends StatelessWidget {
               right: 0,
               bottom: 0,
               left: 0,
-              child: Container()
+              child: Container(
+                color: Colors.black54,
+                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                child: Column(
+                  children: [
+                    Text(
+                      meal.title,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    Row(
+                      children: [],
+                    )
+                  ],
+                ),
+              )
             ),
           ],
         ),
