@@ -15,21 +15,54 @@ class MealDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(meal.title),
       ),
-      body: Column(
-        children: [
-          Image.network(
-            meal.imageUrl,
-            width: double.infinity,
-            fit: BoxFit.cover,
-          ),
-          const SizedBox(height: 10,),
-          Text(
-            'Ingredients',
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
-              color: Theme.of(context).colorScheme.onBackground,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.network(
+              meal.imageUrl,
+              width: double.infinity,
+              fit: BoxFit.cover,
             ),
-          )
-        ],
+            const SizedBox(height: 10,),
+            Text(
+              'Ingredients',
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+            const SizedBox(height: 10,),
+            for (final ingredients in meal.ingredients)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                child: Text(
+                  ingredients,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: Theme.of(context).colorScheme.onBackground,
+                  ),
+                ),
+              ),
+            const SizedBox(height: 10,),
+            Text(
+              'Steps',
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+            const SizedBox(height: 10,),
+            for (final steps in meal.steps)
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                child: Text(
+                  steps,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: Theme.of(context).colorScheme.onBackground,
+                  ),
+                ),
+              ),
+            const SizedBox(height: 20,), 
+          ],
+        ),
       )
     );
   }
